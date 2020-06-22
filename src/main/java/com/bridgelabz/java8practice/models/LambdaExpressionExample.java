@@ -14,7 +14,7 @@ interface StringInterface {
 public class LambdaExpressionExample {
     public static void lambdaExample() {
         System.out.println("\nLambda Operations");
-        MathOperation add = (a, b) -> a + b;
+        MathOperation add = Integer::sum;
         MathOperation sub = (a, b) -> a - b;
         MathOperation mul = (a, b) -> a * b;
         MathOperation div = (a, b) -> a / b;
