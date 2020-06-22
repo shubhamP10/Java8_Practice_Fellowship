@@ -14,22 +14,22 @@ interface MyFunctionalInterface {
 }
 
 public class FunctionalInterfaceImplementation {
-    private static List<String> getBeginWith(List<String> list, Predicate<String> valid){
+    private static List<String> getBeginWith(List<String> list, Predicate<String> valid) {
         List<String> selected = new ArrayList<>();
         list.forEach(player -> {
-            if (valid.test(player)){
-                printNames(()->player);
+            if (valid.test(player)) {
+                printNames(() -> player);
                 selected.add(player);
             }
         });
         return selected;
     }
 
-    private static void printNames(Supplier<String> names){
+    private static void printNames(Supplier<String> names) {
         System.out.println(names.get());
     }
 
-    public static void interfaceImplementation(){
+    public static void interfaceImplementation() {
         MyFunctionalInterface sum = (a, b) -> a + b;
         IntBinaryOperator sum2 = (a, b) -> a + b;
         String[] players = {"Shubham Pattar", "Sudarshan Pattar", "Akhil Lingeri"};
@@ -57,13 +57,13 @@ public class FunctionalInterfaceImplementation {
         //Using Predicate<T> Interface
         System.out.println("\nUsing Predicate<T> Interface");
         List<String> playerList = Arrays.asList(players);
-        System.out.println(getBeginWith(playerList,(s)->s.startsWith("S")));
-        System.out.println(getBeginWith(playerList,(s)->s.startsWith("A")));
+        System.out.println(getBeginWith(playerList, (s) -> s.startsWith("S")));
+        System.out.println(getBeginWith(playerList, (s) -> s.startsWith("A")));
 
         //Using Supplier<T> Interface
         System.out.println("\nUsing Supplier<T> Interface");
-        getBeginWith(playerList,(s)->s.startsWith("S"));
-        getBeginWith(playerList,(s)->s.startsWith("A"));
+        getBeginWith(playerList, (s) -> s.startsWith("S"));
+        getBeginWith(playerList, (s) -> s.startsWith("A"));
 
         /*Using Runnable Interface
          * Implementation Without Using Lambda
@@ -71,18 +71,16 @@ public class FunctionalInterfaceImplementation {
          * Implementation Using Lambda & Runnable Interface
          * */
         System.out.println("\nUsing Runnable Interface");
-        System.out.println(Thread.currentThread().getName()+" application : is Running");
+        System.out.println(Thread.currentThread().getName() + " application : is Running");
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
-                System.out.println(Thread.currentThread().getName()+" is Running");
+                System.out.println(Thread.currentThread().getName() + " is Running");
             }
         });
         thread.start();
-        Runnable task = () -> {
-            System.out.println(Thread.currentThread().getName()+" is Running");
-        };
+        Runnable task = () -> System.out.println(Thread.currentThread().getName() + " is Running");
         new Thread(task).start();
-        new Thread(() -> System.out.println(Thread.currentThread().getName()+" is Running")).start();
+        new Thread(() -> System.out.println(Thread.currentThread().getName() + " is Running")).start();
     }
 }
