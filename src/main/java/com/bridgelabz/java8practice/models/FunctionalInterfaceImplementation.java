@@ -8,7 +8,6 @@ import java.util.function.IntBinaryOperator;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 
-@FunctionalInterface
 interface MyFunctionalInterface {
     int addMethod(int a, int b);
 }
@@ -30,6 +29,7 @@ public class FunctionalInterfaceImplementation {
     }
 
     public static void interfaceImplementation() {
+        System.out.println("\nFunctional Interface Implementation");
         MyFunctionalInterface sum = (a, b) -> a + b;
         IntBinaryOperator sum2 = (a, b) -> a + b;
         String[] players = {"Shubham Pattar", "Sudarshan Pattar", "Akhil Lingeri"};
