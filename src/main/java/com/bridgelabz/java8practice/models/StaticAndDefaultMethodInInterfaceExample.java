@@ -25,6 +25,7 @@ interface SampleInterface2 {
 
 public class StaticAndDefaultMethodInInterfaceExample implements SampleInterface, SampleInterface2 {
     public static void differentMethodsInInterface() {
+        System.out.println("\nInterface Implementation");
         StaticAndDefaultMethodInInterfaceExample obj = new StaticAndDefaultMethodInInterfaceExample();
         obj.defaultMethod();
         SampleInterface.staticMethod();
